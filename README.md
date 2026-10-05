@@ -8,7 +8,8 @@ for almost 40 years** from raw Bloomberg bond prices, then uses it to study
 three questions the original literature could not see:
 
 1. How much did the 2024–26 French political crisis reprice the OAT–Bund
-   spread, and how much of that is French rather than euro-wide risk?
+   spread, how much of that is French rather than euro-wide risk, and does
+   that premium reach the real economy?
 2. Did the 2022–24 ECB tightening change the factor structure of the curve?
 3. Can the shifts between calm and stressed regimes be dated formally?
 
