@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+# Keep notebooks out of the language statistics so the repo reads as Python
+*.ipynb linguist-documentation

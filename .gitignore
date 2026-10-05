@@ -1,0 +1,28 @@
+# Licensed Bloomberg data: never commit
+data/*
+!data/README.md
+*.csv
+*.xlsx
+*.xls
+
+# Generated artefacts (parquet caches, figures, tables)
+output/
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+
+# Editors / OS
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
