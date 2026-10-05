@@ -37,7 +37,7 @@ The core is a from-scratch replication of Grishchenko, Moraux & Pakulyak
 <table>
 <tr>
 <td><img src="docs/figures/study1_10y_political_zoom.png" alt="10y OAT-Bund spread and political shocks"></td>
-<td><img src="docs/figures/study12_decomposition_10y.png" alt="Common-euro vs idiosyncratic French premium"></td>
+<td><img src="docs/figures/study11_decomposition_10y.png" alt="Common-euro vs idiosyncratic French premium"></td>
 </tr>
 <tr>
 <td><img src="docs/figures/study2_levels_vs_changes.png" alt="Slope factor share by regime"></td>
@@ -91,7 +91,7 @@ Implementation details that matter in practice:
 | Study | Method | Code |
 |---|---|---|
 | 1. Political risk | German Bund curve fitted with the same engine; OAT–Bund spread; data-driven shock detection; event study with cumulative abnormal spread changes; rolling beta | `studies/political_risk.py`, `studies/bund_curve.py` |
-| 1.2 Premium decomposition | Regression of daily spread changes on euro-wide factors (ECB CISS, periphery dispersion, Bund moves); idiosyncratic residual premium by maturity; pass-through to corporate loan rates | `studies/political_premium.py` |
+| 1.1 Premium decomposition | Regression of daily spread changes on euro-wide factors (ECB CISS, periphery dispersion, Bund moves); idiosyncratic residual premium by maturity; pass-through to corporate loan rates | `studies/political_premium.py` |
 | 2. PCA by regime | PCA on levels and on changes per policy regime; Lord & Pelsser (2007) sign-change test; weekly vs daily robustness; Ledoit–Wolf shrinkage | `studies/pca_regimes.py` |
 | 3. Market dislocation | Fit-error (noise) diagnostics by maturity bin across crisis episodes; recovery half-lives; leave-one-out robustness | `studies/crisis_dislocation.py` |
 | 3.1 Regime detection | Markov-switching regression (`statsmodels`), Bai–Perron breaks with BIC selection (`ruptures`), CUSUM stability test; corroboration with CISS and the political calendar | `studies/regime_detection.py` |

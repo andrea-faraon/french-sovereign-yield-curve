@@ -8,7 +8,7 @@ adds only what it needs; none of them modifies `oatcurve/` or its outputs.
 | Study | Question | Paper section extended | Notebook |
 |---|---|---|---|
 | **1. Political risk** | How did the 2024–26 French political instability reprice the OAT–Bund safety premium? | §7.1 + UK/Brexit event study | `notebooks/Study1_Political_Risk_OAT_Bund.ipynb` |
-| **1.2 Political premium decomposition** | How much of the spread is idiosyncratic French vs common-euro, across the curve, and does it reach corporate credit? | §7.1 + INSEE two-stage Focus | `notebooks/Study1.2_Political_Premium_Decomposition.ipynb` |
+| **1.1 Political premium decomposition** | How much of the spread is idiosyncratic French vs common-euro, across the curve, and does it reach corporate credit? | §7.1 + INSEE two-stage Focus | `notebooks/Study1.1_Political_Premium_Decomposition.ipynb` |
 | **2. PCA regimes** | Did the slope factor gain importance as the 2022–24 ECB tightening inverted the curve? | §5.3 (Table 4) | `notebooks/Study2_PCA_Curve_Regimes.ipynb` |
 | **3. Crisis dislocation** | Was March 2020 as severe as 2008, and did PEPP restore pricing efficiency? | §8.2 (MAE / noise) | `notebooks/Study3_Crisis_Dislocation_2020.ipynb` |
 | **3.1 Regime detection** | Can the COVID / 2022 / 2024 regime shifts be formally dated and certified? | §8.2 + structural-break econometrics | `notebooks/Study3.1_Regime_Detection.ipynb` |
@@ -21,7 +21,7 @@ studies/
 ├── external_data.py   # ECB curves (AAA + all-bonds), CISS, balance sheet, Euribor, MIR; auto-download/cached
 ├── common.py          # load base results, plotting, French political-event calendar
 ├── political_risk.py  # Study 1: spread, shock detection, event study, rolling beta, regression
-├── political_premium.py   # Study 1.2: common-euro vs idiosyncratic decomposition, term structure, INSEE Stage-1/2
+├── political_premium.py   # Study 1.1: common-euro vs idiosyncratic decomposition, term structure, INSEE Stage-1/2
 ├── pca_regimes.py     # Study 2: PCA on levels & changes, Lord (2007) sign-change test, window-length & shrinkage robustness
 ├── crisis_dislocation.py  # Study 3: per-bin severity (cross-section-normalised), recovery, leave-one-out robustness
 └── regime_detection.py    # Study 3.1: Markov-switching (Hamilton) + Bai-Perron breaks + CUSUM, CISS/event corroboration
@@ -37,10 +37,10 @@ python scripts/01_build_panel.py
 python scripts/02_fit_curves.py
 # 2) the German Bund curve for Study 1 (one-off, ~4 min):
 python scripts/05_fit_bund_curve.py
-# 2b) Study 1.2 also needs the Bund curve:  python scripts/05_fit_bund_curve.py
+# 2b) Study 1.1 also needs the Bund curve:  python scripts/05_fit_bund_curve.py
 # 3) (re)build the study notebooks from source:
 python notebooks/build_studies_notebooks.py      # Studies 1, 2, 3
-python notebooks/build_study12_notebook.py       # Study 1.2 (standalone)
+python notebooks/build_study11_notebook.py       # Study 1.1 (standalone)
 python notebooks/build_study31_notebook.py       # Study 3.1 (standalone)
 # 4) execute them in-place so they open already populated with figures/tables:
 python scripts/06_execute_notebooks.py     # needs: pip install nbconvert ipykernel
@@ -85,7 +85,7 @@ a TLS-intercepting proxy or antivirus, set `ECB_SSL_VERIFY=0`.
   (28.6 → 69.4 bp). The OAT's beta to the Bund stays ≈ 1 (~0.91 → ~1.02): France
   keeps comoving with the core but carries a persistently higher premium —
   repriced in level, not decoupled.
-* **Study 1.2** — decomposing the spread, common-euro factors (periphery
+* **Study 1.1** — decomposing the spread, common-euro factors (periphery
   dispersion + CISS) explain only ~15–20% of the daily variation; the
   idiosyncratic French premium rises from ~0 (2019) to ~40 bp now, and the
   post-2024 widening is almost entirely French (the common-euro component is

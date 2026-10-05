@@ -19,7 +19,7 @@ NOTEBOOKS = [
     "Study1_Political_Risk_OAT_Bund.ipynb",
     "Study2_PCA_Curve_Regimes.ipynb",
     "Study3_Crisis_Dislocation_2020.ipynb",
-    "Study1.2_Political_Premium_Decomposition.ipynb",
+    "Study1.1_Political_Premium_Decomposition.ipynb",
     "Study3.1_Regime_Detection.ipynb",
 ]
 

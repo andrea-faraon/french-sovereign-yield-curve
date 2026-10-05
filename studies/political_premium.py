@@ -1,5 +1,5 @@
 """
-Study 1.2 - Decomposing the OAT-Bund spread: common-euro vs idiosyncratic
+Study 1.1 - Decomposing the OAT-Bund spread: common-euro vs idiosyncratic
 French political premium, along the whole term structure (extends the single-3y
 INSEE Focus, 18 Mar 2025, "Note de conjoncture").
 

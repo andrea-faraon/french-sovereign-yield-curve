@@ -17,7 +17,7 @@ own structured series** (no unstructured/text data):
 
 The same toolkit is applied to the **noise** (Study 3 dislocation), the
 **slope** 10y-2y (Study 2 inversion) and the **idiosyncratic OAT-Bund premium**
-(Study 1.2 political regime), so the three post-2018 episodes are dated with one
+(Study 1.1 political regime), so the three post-2018 episodes are dated with one
 consistent, certified procedure.  In the spirit of Yi, Mehra, Chen & Cartlidge
 (2026) - who *augment* regime detection with an extra information source - we
 corroborate the price-based regimes against an independent market-stress signal

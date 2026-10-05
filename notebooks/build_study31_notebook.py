@@ -46,7 +46,7 @@ Study 3 showed *descriptively* that the OAT pricing-noise floor stepped up after
 2. **Bai–Perron multiple structural breaks** — exact dating of the level shifts, number of breaks chosen by BIC.
 3. **CUSUM stability test (Ploberger–Krämer)** — a formal test that each series is *not* structurally stable.
 
-We apply the same toolkit to the **noise** (Study 3 dislocation), the **slope** 10y−2y (Study 2 inversion) and the **idiosyncratic OAT–Bund premium** (Study 1.2 political regime).
+We apply the same toolkit to the **noise** (Study 3 dislocation), the **slope** 10y−2y (Study 2 inversion) and the **idiosyncratic OAT–Bund premium** (Study 1.1 political regime).
 
 > *On the motivating paper.* Yi, Mehra, Chen & Cartlidge (2026) *enhance* regime-shift detection on the US Treasury market with **unstructured** (text) data. We deliberately do **not** reproduce that pipeline — no euro-area news corpus, a different market/microstructure, and it is a non-peer-reviewed preprint. Instead we adopt its *idea* — corroborating regimes with an **additional, independent information source** — using signals we already have (the ECB CISS and the political-event calendar). Series are weekly, from 2005 (the modern-regime window); no curve is re-fitted.
 """)
@@ -82,7 +82,7 @@ bp["segments"].to_csv(common.TABLE_DIR / "study31_noise_breaks.csv", index=False
 
 # --- Section 2: slope & premium ---------------------------------------------
 md(r"""
-## 2. The same toolkit on the slope (Study 2) and the political premium (Study 1.2)
+## 2. The same toolkit on the slope (Study 2) and the political premium (Study 1.1)
 
 Dating the **2022–24 flat/inverted-slope regime** and the **2024+ political-premium regime** with the identical procedure.
 """)
@@ -98,7 +98,7 @@ shade_prob(axP, mp["stress_prob"], color="tab:red", label="high-premium regime")
 for d, info in events.iterrows():
     if info.tier==1 and d>=ms["series"].index.min(): axP.axvline(d, color="k", ls="--", lw=.6)
 axP.axhline(0, color="grey", lw=.5); axP.set(xlabel="Year", ylabel="idiosyncratic premium (bp)",
-           title="Political-premium regime (Study 1.2) with tier-1 events (dashed)")
+           title="Political-premium regime (Study 1.1) with tier-1 events (dashed)")
 axP.legend(frameon=False, fontsize=8, loc="upper left")
 common.save_fig(fig, "study31_slope_premium_regimes.png"); plt.show()
 print("Slope: flat/inverted-regime prob 2022-24 = %.2f (vs %.2f before 2022)"
@@ -150,7 +150,7 @@ md(r"""
 ### Reading the results
 
 - **The 2022 shift is real and dated.** Markov-switching puts COVID-2020 and the post-2022 period in the high-noise **crisis** regime, with a **return to calm in 2021 in between**; Bai–Perron dates the level shifts to **≈ 6 Mar 2020** (COVID, segment ≈ 8 bp), a **2021 recovery** (≈ 3 bp) and **≈ 1 Jul 2022** (structural floor, ≈ 9.6 bp). This *certifies*, with peer-reviewed methods, Study 3's claim that the 2023–25 floor is a **separate structural regime, not COVID persistence**.
-- **The inversion and the political premium are dated too.** The flat/inverted-slope regime concentrates in **2022–24** (Study 2); the high-premium regime switches on in **2024** (Study 1.2) and coincides almost perfectly with the political-event calendar.
+- **The inversion and the political premium are dated too.** The flat/inverted-slope regime concentrates in **2022–24** (Study 2); the high-premium regime switches on in **2024** (Study 1.1) and coincides almost perfectly with the political-event calendar.
 - **Corroboration, honestly.** The political-premium regime is confirmed by an independent hand-coded signal (the events). The noise dislocation regime is **only partly** a systemic-stress (CISS) regime — the post-2022 floor is *not* CISS-stress — which is itself evidence for the **structural (free-float/collateral)** interpretation over a pure risk-aversion one.
 - **Method vs the motivating paper.** We reach a dated, certified result with standard, peer-reviewed tools on structured data; Yi et al.'s (2026) unstructured-data approach is cited as a complementary avenue, not reproduced — the defensible choice for a thesis chapter.
 

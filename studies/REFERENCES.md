@@ -1,10 +1,10 @@
 # References — supplementary studies — where to find each
 
-Every reference cited in the study notebooks (1.2, 2 and 3) is **already a PDF
+Every reference cited in the study notebooks (1.1, 2 and 3) is **already a PDF
 in your own folders** (the filenames are non-obvious, so the map below tells you
 which file is which), with the canonical online source for the version to cite.
 
-## Study 1.2 — political-premium decomposition (`Paper Caso Studio 1`)
+## Study 1.1 — political-premium decomposition (`Paper Caso Studio 1`)
 
 | Citation | File you already have | Official source |
 |---|---|---|

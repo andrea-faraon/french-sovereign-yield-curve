@@ -1,7 +1,7 @@
 """
-Generator for Study1.2_Political_Premium_Decomposition.ipynb (standalone, so it
+Generator for Study1.1_Political_Premium_Decomposition.ipynb (standalone, so it
 does not touch the other study notebooks).  Run:
-    python notebooks/build_study12_notebook.py
+    python notebooks/build_study11_notebook.py
 then execute it (scripts/06_execute_notebooks.py covers all notebooks).
 """
 import json
@@ -32,7 +32,7 @@ events = common.events_frame()
 """
 
 md(r"""
-# Study 1.2 — Decomposing the OAT–Bund spread: common-euro vs idiosyncratic French political premium
+# Study 1.1 — Decomposing the OAT–Bund spread: common-euro vs idiosyncratic French political premium
 
 **Extends the single-3y INSEE Focus (Note de conjoncture, 18 Mar 2025) to the whole term structure, using our own Svensson OAT and Bund curves.**
 
@@ -59,7 +59,7 @@ Our 3y OAT–Bund spread vs the INSEE figures (≈23 → ≈41 bp, May-24 → Ja
 """)
 code(r"""
 val = pp.insee_validation(spread); display(val)
-val.to_csv(common.TABLE_DIR / "study12_insee_validation.csv")
+val.to_csv(common.TABLE_DIR / "study11_insee_validation.csv")
 print("Widening ours (eop) %.1f bp vs INSEE %.0f bp" % (val.loc["widening","ours_eop_bp"], val.loc["widening","INSEE_bp"]))
 """)
 
@@ -90,7 +90,7 @@ for t in (2,5,10,30):
 d10 = pp.decompose_changes(10); display(d10["table"])
 
 io = pp.idiosyncratic_premium(10)
-io.to_csv(common.TABLE_DIR / "study12_idiosyncratic_premium_10y.csv")
+io.to_csv(common.TABLE_DIR / "study11_idiosyncratic_premium_10y.csv")
 fig, ax = plt.subplots(figsize=(10,4.5))
 ax.plot(io.index, io["spread"], lw=.6, color="tab:grey", label="OAT-Bund spread (10y)")
 ax.plot(io.index, io["common_euro"], lw=.7, color="tab:blue", label="common-euro component")
@@ -100,7 +100,7 @@ for dte, info in events.iterrows():
 ax.axhline(0, color="grey", lw=.4); ax.set_xlim(pd.Timestamp("2015-01-01"), io.index.max())
 ax.set(xlabel="Year", ylabel="bp", title="10y OAT-Bund spread: common-euro vs idiosyncratic French premium")
 ax.legend(frameon=False, fontsize=8)
-common.save_fig(fig, "study12_decomposition_10y.png"); plt.show()
+common.save_fig(fig, "study11_decomposition_10y.png"); plt.show()
 print("idiosyncratic FR premium (10y): 2019 mean %.1f | 2024 mean %.1f | latest %.1f bp"
       % (io.loc["2019","idiosyncratic_FR"].mean(), io.loc["2024","idiosyncratic_FR"].mean(), io["idiosyncratic_FR"].iloc[-1]))
 """)
@@ -132,7 +132,7 @@ for dte, info in events.iterrows():
     if info.tier==1 and dte>=pd.Timestamp("2024-01-01"): axR.axvline(dte, color="k", ls="--", lw=.6)
 axR.set_xlim(pd.Timestamp("2023-01-01"), slope.index.max())
 axR.set(xlabel="Year", ylabel="spread slope 10y-2y (bp)", title="Spread-curve slope (risk type)")
-common.save_fig(fig, "study12_term_structure.png"); plt.show()
+common.save_fig(fig, "study11_term_structure.png"); plt.show()
 print("Dissolution: 2y +%.0f vs 10y +%.0f bp -> belly/long, structural-fiscal, not near-term rollover"
       % (pp.term_structure_response("2024-06-09").loc["2y","change_bp"],
          pp.term_structure_response("2024-06-09").loc["10y","change_bp"]))
@@ -159,8 +159,8 @@ ax.plot(d.index, d["nfc"], lw=1, label="observed NFC new-loan rate")
 ax.plot(d.index, d["nfc_fitted"], lw=1, ls="--", label="fitted (incl. spread)")
 ax.set(xlabel="Year", ylabel="%", title="French NFC new-loan rate: observed vs model (Stage-2)")
 ax.legend(frameon=False, fontsize=8)
-common.save_fig(fig, "study12_nfc_transmission.png"); plt.show()
-s2["table"].to_csv(common.TABLE_DIR / "study12_nfc_stage2.csv")
+common.save_fig(fig, "study11_nfc_transmission.png"); plt.show()
+s2["table"].to_csv(common.TABLE_DIR / "study11_nfc_stage2.csv")
 """)
 
 # --- Section 5 ---------------------------------------------------------------
@@ -207,6 +207,6 @@ nb = {"cells": cells,
       "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
                    "language_info": {"name": "python", "version": "3.13"}},
       "nbformat": 4, "nbformat_minor": 5}
-out = pathlib.Path(__file__).resolve().parent / "Study1.2_Political_Premium_Decomposition.ipynb"
+out = pathlib.Path(__file__).resolve().parent / "Study1.1_Political_Premium_Decomposition.ipynb"
 out.write_text(json.dumps(nb, indent=1), encoding="utf-8")
 print(f"Wrote {out.name} ({len(cells)} cells)")
